@@ -34,6 +34,8 @@ Bot: Your name is Arooj.
 
 This confirms the chatbot correctly recalls information from earlier in the conversation, even after a large unrelated response was generated in between.
 
+See RESULTS.md for the full test transcript and analysis.
+
 ## Notes
 - The free model used (poolside/laguna-xs-2.1:free) is subject to change on OpenRouter's end — if it stops working, check https://openrouter.ai/models?max_price=0 for a current free alternative and update the model= line in chatbot.py.
 - .env is excluded from version control via .gitignore to keep the API key private.
