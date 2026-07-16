@@ -15,6 +15,14 @@ client = OpenAI(
 # This empty list is our chatbot's memory
 history = []
 
+MAX_TURNS = 10  # keeps the last 10 user+bot exchanges (20 messages total)
+
+def trim_history(history, max_turns=MAX_TURNS):
+    max_messages = max_turns * 2
+    if len(history) > max_messages:
+        history = history[-max_messages:]
+    return history
+
 print("Chatbot ready! Type 'quit' to exit.\n")
 
 while True:
@@ -36,5 +44,7 @@ while True:
     reply = response.choices[0].message.content
 
     history.append({"role": "assistant", "content": reply})
+
+    history = trim_history(history)
 
     print("Bot:", reply)
