@@ -10,6 +10,7 @@ A terminal-based chatbot that remembers previous messages during a live conversa
 - Every user message and every model response is stored in an in-memory Python list called `history`.
 - On every new turn, the entire `history` list is sent to the model — not just the latest message — so the model has full context of the conversation so far.
 - This proves the core concept: the LLM itself has no memory. All "memory" is built and maintained on the client side.
+- To prevent the conversation history from growing indefinitely and exceeding the model's context limit, a sliding window mechanism keeps only the most recent 10 exchanges (20 messages), automatically dropping older ones.
 
 ## Requirements
 - Python 3.10+
